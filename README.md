@@ -28,4 +28,11 @@ Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
 * On your server run `sudo ufw enable` to restart the firewall with the new configuration
 * Check that the firewall is active with `sudo ufw status`
 
+## Step 4: Create `grader`
+* Use `sudo adduser grader` to create the new user
+* Grant `grader` the permission to `sudo` using `sudo visudo`
+    * Below the line `root  ALL=(ALL:ALL) ALL`, add `grader  ALL=(ALL:ALL) ALL`
+* In `/home/grader`, `mkdir .ssh`
+* Then `touch .ssh/authorized_keys`, here you place the public key created on your local machine using `ssh-keygen`
+
 
