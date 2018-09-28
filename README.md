@@ -56,4 +56,18 @@ From this account you will create a limited permission user called `catalog`.
     * Use `\password catalog` to set a password for `catalog` user
 * Exit PostgreSQL console and exit `postgre` user
 
+## Step 7: Reconfigure app for deployment
+* Navigate to `/var/www/`
+    * create a directory `CatalogApp` and then another directory `CatalogApp` within the former
+* Download or clone the app from git repository to `/var/www/CatalogApp/CatalogApp/`
+* Use `sudo virtualenv venv` to create a `virtualenv` in this directory
+    * use `source /venv/bin/activate` to activate the virtual environment
+    * Now, install the remaining necessary packages with `sudo pip install -r requirements.txt`
+* Modify the various .py files to use PostgreSQL
+    * in `application.py`:
+        * change the engine to user PostgreSQL, use `engine = create_engine("postgresql://catalog:catalog@localhost/catalog")
+        * change the path to `client_secrets.json` to the absolute path
+    * in `database_setup.py` and `populate_database.py` make the same modification to `create_engine` as in `application.py`
+* Run both `database_setup.py` and `populate_database.py` to setup database
+
 
