@@ -35,4 +35,10 @@ Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
 * In `/home/grader`, `mkdir .ssh`
 * Then `touch .ssh/authorized_keys`, here you place the public key created on your local machine using `ssh-keygen`
 
-
+## Step 5: Preparing the server
+* Install Apache 2, `sudo apt install apache2`
+* Then install module to run `wsgi` applications, `sudo apt install libapache2-mod-wsgi python-dev`
+    * Enable the module with: `sudo a2enmod wsgi`
+* Next install additional python modules: `sudo apt install python-pip python-psycopg2`
+    * To manage python modules specific to this application use a virtual environment. To do this, you will need `virtualenv`
+        * Use `sudo pip install virtualenv`
