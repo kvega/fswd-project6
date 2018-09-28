@@ -42,3 +42,18 @@ Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
 * Next install additional python modules: `sudo apt install python-pip python-psycopg2`
     * To manage python modules specific to this application use a virtual environment. To do this, you will need `virtualenv`
         * Use `sudo pip install virtualenv`
+
+## Step 6: Configuring PostgreSQL
+PostgreSQL serves as the database system for the application
+* To install PostgreSQL on your server, run `sudo apt install postgresql`
+
+PostgreSQL will create a new user on your server named `postgres`.
+* Log into `postgres` with `sudo su - postgres`
+From this account you will create a limited permission user called `catalog`. 
+* A quick way to do this is to run `createuser --interactive`
+    * Give `catalog` only the ability to create databases
+* Next use `psql` to start the database console
+    * Use `\password catalog` to set a password for `catalog` user
+* Exit PostgreSQL console and exit `postgre` user
+
+
