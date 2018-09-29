@@ -37,7 +37,9 @@ Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
     * Below the line `root  ALL=(ALL:ALL) ALL`, add `grader  ALL=(ALL:ALL) ALL`
 * In `/home/grader`, `mkdir .ssh`
 * Then `touch .ssh/authorized_keys`, here you place the public key created on your local machine using `ssh-keygen`
-
+* Change the permissions on the `.ssh` and `authorized_keys`
+    * `chmod 644 .ssh/authorized_keys`
+    * `chmod 700 .ssh`
 ## Step 5: Preparing the server
 * Install Apache 2, `sudo apt install apache2`
 * Then install module to run `wsgi` applications, `sudo apt install libapache2-mod-wsgi python-dev`
