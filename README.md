@@ -24,6 +24,9 @@ Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
             * `sudo ufw allow 2200/tcp`
             * `sudo ufw allow 80/tcp`
             * `sudo ufw allow 123/udp`
+* Change the default SSH port to 2200
+    * `sudo nano /etc/ssh/sshd_config`
+        * change the line `Port 22` to `Port 2200`
 * Configure Lightsail firewall to allow connections on port 2200
 * On your server run `sudo ufw enable` to restart the firewall with the new configuration
 * Check that the firewall is active with `sudo ufw status`
