@@ -2,7 +2,7 @@
 
 Deploy Catalog App from Project 6 to Linux Server
 
-My project can be found at http://35.172.233.141.xip.io
+My project can be found at http://catalog.35.172.233.141.xip.io
 
 ## Step 1: Create your server
 Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
@@ -102,7 +102,7 @@ Now setup a virtual host file:
 * Add the following code to this file:
     ```
     <VirtualHost *:80>
-                ServerName {your server ip here}.xip.io
+                ServerName {optional sub-domain}.{your server ip here}.xip.io
                 ServerAdmin admin@catalogapp.com
                 WSGIScriptAlias / /path/to/wsgi/file
                 <Directory /path/to/wsgi/file/directory/>
@@ -128,3 +128,16 @@ Now setup a virtual host file:
 * [Arch Linux Wiki - Uncomplicated Firewall](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall)
 * [Arch Linux Wiki - PostgreSQL](https://wiki.archlinux.org/index.php/PostgreSQL)
 * [PostgreSQL Documentation - createdb](https://www.postgresql.org/docs/current/static/app-createdb.html)
+* xip.io
+
+## Bonus - Host Multiple Sites on a Server
+
+[Here](http://neighborhood.35.172.233.141.xip.io), I've hosted my Neighboorhood App.
+
+Notice the structure of the URL, http://neighborhood.35.172.233.141.xip.io/ This URL contains the sub-domain `neighborhood` while the URL for my catalog app contains the sub-domain `catalog`
+
+To host multiple sites on your server, add a sub-domain to the `ServerName` of each of your websites' virtual host files.
+
+## Bonus Sources
+* [How To Run Multiple Websites On A Single Ubuntu Server Using Apache2](https://www.liberiangeek.net/2014/09/run-multiple-websites-single-ubuntu-server-using-apache2/)
+* xip.io (look the structure of the example domain names)
