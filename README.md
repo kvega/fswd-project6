@@ -59,6 +59,11 @@ From this account you will create a limited permission user called `catalog`.
     * Give `catalog` only the ability to create databases
 * Next use `psql` to start the database console
     * Use `\password catalog` to set a password for `catalog` user
+* Create the database using the following commands: 
+    * `CREATE DATABASE catalog WITH OWNER catalog;`
+    * `\c catalog`
+    * `REVOKE ALL ON SCHEMA public FROM public;`
+    * `GRANT ALL ON SCHEMA public TO catalog;` 
 * Exit PostgreSQL console and exit `postgre` user
 
 ## Step 7: Reconfigure app for deployment
