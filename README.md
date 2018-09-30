@@ -94,7 +94,7 @@ Now setup a virtual host file:
 * Add the following code to this file:
     ```
     <VirtualHost *:80>
-                ServerName 35.172.233.141.xip.io
+                ServerName {your server ip here}.xip.io
                 ServerAdmin admin@catalogapp.com
                 WSGIScriptAlias / /var/www/CatalogApp/CatalogApp/src/catalogapp.wsgi
                 <Directory /var/www/CatalogApp/CatalogApp/src/>
