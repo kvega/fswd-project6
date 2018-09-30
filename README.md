@@ -83,10 +83,10 @@ Add the following `catalogapp.wsgi` file to the application directory:
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/CatalogApp/CatalogApp/src/")
+sys.path.insert(0,"/path/to/your/app")
 
 from application import app as application
-application.secret_key = 'super_duper_secret_key'
+application.secret_key = '{your secret key here}'
 ```
 
 Now setup a virtual host file: 
@@ -96,13 +96,13 @@ Now setup a virtual host file:
     <VirtualHost *:80>
                 ServerName {your server ip here}.xip.io
                 ServerAdmin admin@catalogapp.com
-                WSGIScriptAlias / /var/www/CatalogApp/CatalogApp/src/catalogapp.wsgi
-                <Directory /var/www/CatalogApp/CatalogApp/src/>
+                WSGIScriptAlias / /path/to/wsgi/file
+                <Directory /path/to/wsgi/file/directory/>
                         Order allow,deny
                         Allow from all
                 </Directory>
-                Alias /static /var/www/CatalogApp/CatalogApp/src/static
-                <Directory /var/www/CatalogApp/CatalogApp/src/static/>
+                Alias /static /path/to/app/static
+                <Directory /path/to/app/static/>
                         Order allow,deny
                         Allow from all
                 </Directory>
