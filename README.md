@@ -88,3 +88,27 @@ sys.path.insert(0,"/var/www/CatalogApp/CatalogApp/src/")
 from application import app as application
 application.secret_key = 'super_duper_secret_key'
 `
+
+Now setup a virtual host file: 
+* `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
+* Add the following code to this file:
+    python`
+    <VirtualHost *:80>
+                ServerName 35.172.233.141.xip.io
+                ServerAdmin admin@catalogapp.com
+                WSGIScriptAlias / /var/www/CatalogApp/CatalogApp/src/catalogapp.wsgi
+                <Directory /var/www/CatalogApp/CatalogApp/src/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                Alias /static /var/www/CatalogApp/CatalogApp/src/static
+                <Directory /var/www/CatalogApp/CatalogApp/src/static/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>`
+
+    
