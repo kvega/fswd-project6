@@ -76,3 +76,15 @@ From this account you will create a limited permission user called `catalog`.
 * Run both `database_setup.py` and `populate_database.py` to setup database
 
 
+## Step 8: Configure wsgi
+Add the following `catalogapp.wsgi` file to the application directory:
+python`
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/CatalogApp/CatalogApp/src/")
+
+from application import app as application
+application.secret_key = 'super_duper_secret_key'
+`
