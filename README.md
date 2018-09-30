@@ -2,6 +2,8 @@
 
 Deploy Catalog App from Project 6 to Linux Server
 
+My project can be found at http://35.172.233.141.xip.io
+
 ## Step 1: Create your server
 Set up Ubuntu 16.04 LTS instance on Amazon Lightsail.
 
@@ -61,6 +63,7 @@ From this account you will create a limited permission user called `catalog`.
     * Use `\password catalog` to set a password for `catalog` user
 * Create the database using the following commands: 
     * `CREATE DATABASE catalog WITH OWNER catalog;`
+        * this can also be done from the bash shell with `createdb -0 catalog catalog`
     * `\c catalog`
     * `REVOKE ALL ON SCHEMA public FROM public;`
     * `GRANT ALL ON SCHEMA public TO catalog;` 
@@ -117,3 +120,11 @@ Now setup a virtual host file:
     </VirtualHost>
     ```
 
+## Resources
+* [How To Deploy a Flask Application on an Ubuntu VPS
+](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+* [How To Use Roles and Manage Grant Permissions in PostgreSQL on a VPS](https://www.digitalocean.com/community/tutorials/how-to-use-roles-and-manage-grant-permissions-in-postgresql-on-a-vps--2)
+* [How To Secure PostgreSQL on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+* [Arch Linux Wiki - Uncomplicated Firewall](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall)
+* [Arch Linux Wiki - PostgreSQL](https://wiki.archlinux.org/index.php/PostgreSQL)
+* [PostgreSQL Documentation - createdb](https://www.postgresql.org/docs/current/static/app-createdb.html)
